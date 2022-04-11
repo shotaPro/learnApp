@@ -1,21 +1,29 @@
-$(function(){
-	$('.search').keyup(function(){
+$(function () {
+	$('.search').keyup(function () {
 		var search = $(this).val();
-		$.post('http://localhost:8888/tw/core/ajax/search.php', {search:search}, function(data){
+		$.post('http://localhost:8888/tw/core/ajax/search.php', {
+
+			search: search
+
+		}, function (data) {
 			$('.search-result').html(data);
-			if(search == ""){
+			if (search == "") {
 				$('.search-result').html("");
-				$('.search-result li').click(function(){
+				$('.search-result li').click(function () {
 					$('.search-result li').hide();
-				});	
+				});
 			}
 		});
 	});
 
-	$(document).on('keyup', '.search-user', function(){
+	$(document).on('keyup', '.search-user', function () {
 		$('.message-recent').hide();
 		var search = $(this).val();
-		$.post('http://localhost:8888/tw/core/ajax/searchUserInMsg.php', {search:search}, function(data){
+		$.post('http://localhost:8888/tw/core/ajax/searchUserInMsg.php', {
+
+			search: search
+
+		}, function (data) {
 			$('.message-body').html(data);
 		});
 	});

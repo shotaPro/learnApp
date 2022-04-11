@@ -1,13 +1,17 @@
-notification = function(){
-	$.get('http://localhost:8888/tw/core/ajax/notification.php', {showNotification:true}, function(data){
-		if(data){
-			if(data.notification > 0){
+notification = function () {
+	$.get('http://localhost:8888/tw/core/ajax/notification.php', {
+
+		showNotification: true
+
+	}, function (data) {
+		if (data) {
+			if (data.notification > 0) {
 				$('#notification').addClass('span-i');
 				$('#notification').html(data.notification);
 			}
-			if(data.messages > 0){
+			if (data.messages > 0) {
 				$('#messages').show();
- 				$('#messages').addClass('span-i');
+				$('#messages').addClass('span-i');
 				$('#messages').html(data.messages);
 			}
 		}
