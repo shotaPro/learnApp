@@ -1,17 +1,14 @@
-<?php 
-	session_start();
-	include 'database/connection.php';
-	include 'classes/user.php';
-	include 'classes/tweet.php';
-	include 'classes/follow.php';
-	include 'classes/message.php';
-  	global $pdo;
+<?php
 
-  	$getFromU = new User($pdo);
-  	$getFromT = new Tweet($pdo);
-    $getFromF = new Follow($pdo);
-    $getFromM = new Message($pdo);
-  
-  	define('BASE_URL', 'http://localhost:8888/tw/');
- ?>                                                   
- 
+session_start();
+include 'database/connection.php';
+include 'classes/user.php';
+include 'classes/post.php';
+
+global $pdo;
+
+$getU = new User($pdo);
+$getP = new Post($pdo);
+
+
+define('BASE_URL', 'http://localhost:8888/rd/');

@@ -1,62 +1,71 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "GET" && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
-	header('Location: ../index.php');
-}
-if(isset($_POST['signup'])){
-	$screenName = $_POST['screenName'];
+
+
+if (isset($_POST['signup'])) {
+	$username = $_POST['name'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$error = '';
 
-	if(empty($screenName) or empty($password) or empty($email)){
-		$error = 'All fields are required';
-	}else {
-		$email = $getFromU->checkInput($email);
-		$screenName = $getFromU->checkInput($screenName);
-		$password = $getFromU->checkInput($password);
+	if (!empty($_POST['name']) or !empty($_POST['email']) or !empty($_POST['password'])) {
 
-		if(!filter_var($email)) {
-			$error = 'Invalid email format';
-		}else if(strlen($screenName) > 20){
-			$error = 'Name must be between in 6-20 characters';
-		}else if(strlen($password) < 5){
-			$error = 'Password is too short';
-		}else {
-			if($getFromU->checkEmail($email) === true){
-				$error = 'Email is already in use';
-			}else {
-				$user_id = $getFromU->create('users', array('email' => $email, 'password' => md5($password) , 'screenName' => $screenName, 'profileImage' => 'assets/images/defaultProfileImage.png', 'profileCover' => 'assets/images/defaultCoverImage.png'));
-				$_SESSION['user_id'] = $user_id;
-				header('Location: includes/signup.php?step=1');
+		$getU->checkInput($username);
+		$getU->checkInput($email);
+		$getU->checkInput($password);
+
+		if (strlen($username) > 20) {
+
+			echo '名前は20文字いないに設定してください';
+
+		} else if (strlen($username) <= 2) {
+
+			echo '名前は3文字以上に設定しましょう';
+
+		} else if (strlen($password) <= 2) {
+
+			echo "パスワードは３以上にしましょう";
+			
+		} else {
+
+			$getU->create('users', array('username' => $username, 'email' => $email, 'password' => $password));
+			$getU->login($email, $password);
+
+			if ($getU->loggedIn() === true) {
+
+				header('Location: home.php');
 			}
 		}
+	} else {
+
+		echo '全ての項目を記入してください';
 	}
 }
+
+
 ?>
 <form method="post">
-<div class="signup-div">
-	<h3>Sign up </h3>
-	<ul>
-		<li>
-		    <input type="text" name="screenName" placeholder="Full Name"/>
-		</li>
-		<li>
-		    <input type="email" name="email" placeholder="Email"/>
-		</li>
-		<li>
-			<input type="password" name="password" placeholder="Password"/>
-		</li>
-		<li>
-			<input type="submit" name="signup" Value="Signup for Twitter">
-		</li>
-		<?php
-      if(isset($error)){
-        echo '<li class="error-li">
-        <div class="span-fp-error">'.$error.'</div>
+	<div class="signup-div">
+		<h3>Sign up </h3>
+		<ul>
+			<li>
+				<input type="text" name="name" placeholder="Full Name" />
+			</li>
+			<li>
+				<input type="email" name="email" placeholder="Email" />
+			</li>
+			<li>
+				<input type="password" name="password" placeholder="Password" />
+			</li>
+			<li>
+				<input type="submit" name="signup" Value="新規アカウント">
+			</li>
+			<?php
+			if (isset($error)) {
+				echo '<li class="error-li">
+        <div class="span-fp-error">' . $error . '</div>
         </li>';
-      }
-    ?>
-	</ul>
+			}
+			?>
+		</ul>
 
-</div>
+	</div>
 </form>
