@@ -462,6 +462,7 @@ input.allInput {
 	font-size: 25px;
 	color: #83b476;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 .t-fo-left input[type="file"] {
@@ -496,6 +497,11 @@ input.allInput {
 	border: 1px solid #aaa;
 	border-radius: 4px;
 	cursor: pointer;
+}
+
+.fileDescription{
+	font-size: 20px;
+    color: #83b476
 }
 
 

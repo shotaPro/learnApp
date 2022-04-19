@@ -93,6 +93,7 @@ if (isset($_POST['post'])) {
 								<ul>
 									<input type="file" name="file" id="file" />
 									<li><label for="file"><i class="fa fa-camera" aria-hidden="true">画像をアップロード</i></label>
+									<p class="fileDescription">(※jpg, png, jpegのみ可)</p>
 									</li>
 								</ul>
 							</div>

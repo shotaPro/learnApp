@@ -88,18 +88,13 @@ class User
 
             if ($errors === 0) {
 
-                if ($fileSize <= 2097152) {
 
                     $root = 'users/' . $filename;
                     move_uploaded_file($fileTmp, $_SERVER['DOCUMENT_ROOT'] . '/tw/' . $root);
                     return $root;
-                } else {
-                    $GLOBALS['imgError'] = "File Size is too large";
-                }
+                
             }
-        } else {
-            $GLOBALS['imgError'] = "Only alloewd JPG, PNG JPEG extensions";
-        }
+        } 
     }
 
     public function delete($table, $array)
