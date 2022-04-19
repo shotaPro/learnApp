@@ -117,7 +117,6 @@ if (isset($_POST['post'])) {
 	</div>
 	<div class="popupTweet"></div>
 	<script type="text/javascript" src="assets/js/delete.js"></script>
-	<script type="text/javascript" src="assets/js/search.js"></script>
 	</div>
 	</div>
 
