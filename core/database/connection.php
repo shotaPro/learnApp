@@ -1,7 +1,7 @@
 <?php 
-	$dsn = 'mysql:host=localhost; dbname=rd';
-	$user = 'rd';
-	$password = 'rd123';
+	$dsn = 'mysql:host=us-cdbr-east-05.cleardb.net; dbname=heroku_23965a723e0d8d4';
+	$user = 'b01b54663cf32b';
+	$password = '13df0ee0';
  
 
 	try{
