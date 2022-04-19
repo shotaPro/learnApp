@@ -33,6 +33,5 @@ $(function () {
 	});
 })
 
-https://outputap.herokuapp.com/home.php
 
 
