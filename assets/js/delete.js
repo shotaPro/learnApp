@@ -4,7 +4,7 @@ $(function () {
 
 		var post_id = $(this).data('post');
 
-		$.post('https://localhost:us-cdbr-east-05.cleardb.net/core/ajax/deleteBtn.php',
+		$.post('https://outputap.herokuapp.com/core/ajax/deleteBtn.php',
 			{
 
 				showpopup: post_id
@@ -22,7 +22,7 @@ $(function () {
 
 		var $post_id = $(this).data('post');
 
-		$.post('https://localhost:us-cdbr-east-05.cleardb.net/core/ajax/deleteBtn.php', {
+		$.post('https://outputap.herokuapp.com/core/ajax/deleteBtn.php', {
 
 			deletePost: $post_id
 
@@ -32,4 +32,7 @@ $(function () {
 		});
 	});
 })
+
+https://outputap.herokuapp.com/home.php
+
 
