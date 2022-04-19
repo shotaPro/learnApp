@@ -4,7 +4,7 @@ $(function () {
 
 		var post_id = $(this).data('post');
 
-		$.post('https://localhost:us-cdbr-east-05.cleardb.net/rd/core/ajax/deleteBtn.php',
+		$.post('http://localhost:us-cdbr-east-05.cleardb.net/rd/core/ajax/deleteBtn.php',
 			{
 
 				showpopup: post_id
@@ -22,7 +22,7 @@ $(function () {
 
 		var $post_id = $(this).data('post');
 
-		$.post('https://localhost:us-cdbr-east-05.cleardb.net/rd/core/ajax/deleteBtn.php', {
+		$.post('http://localhost:us-cdbr-east-05.cleardb.net/rd/core/ajax/deleteBtn.php', {
 
 			deletePost: $post_id
 

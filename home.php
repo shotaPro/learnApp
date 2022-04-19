@@ -120,9 +120,6 @@ if (isset($_POST['post'])) {
 	</div>
 	</div>
 
-	<script>
-
-	</script>
 </body>
 
 </html>
