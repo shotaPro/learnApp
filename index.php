@@ -13,7 +13,6 @@ if ($getU->loggedIn() === true) {
 <html>
 
 <head>
-	<title>Tweety</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" />
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
