@@ -12,7 +12,7 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
     $password = $getU->checkInput($password);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errorMsg = "Invalid format";
+      $errorMsg = "無効なメールアドレスです";
     } else {
       if ($getU->login($email, $password) === false) {
         $errorMsg = "メールアドレス、またはパスワードが間違っています";
